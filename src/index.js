@@ -9,4 +9,15 @@ dotenv.config({
 })
 
 
-connectdb();
+connectdb()
+.then(() => {
+    app.listen(process.env.PORT || 8000, () =>{
+        console.log("server is listning to port")
+    })
+}
+    
+)
+
+.catch((error) => {
+    console.log("error in coonectiong express:" , error)
+})
